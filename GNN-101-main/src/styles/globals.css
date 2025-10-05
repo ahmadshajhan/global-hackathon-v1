@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tw-gradient-stops: #4158d0 0%, #c850c0 50%, #df849f 71%, #ffcc70 100%;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --header-height: 80px;
+  --zoom-ratio: 0.7;
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to top, rgb(236, 236, 236), white);
+  background-color: white;
+}
+
+g.layerVis {
+  transition-property: transform;
+  transition-duration: 2s;
+}
+
+
+
+path,
+text,
+svgElement,
+svg,
+rect {
+  transition: all;
+  transition-duration: 1s;
+}
+
+.frame {
+  transition: all;
+  transition-duration: 1.5s;
+}
+.parent .bbox {
+  pointer-events: none;
+}
+
+.introjs-tooltip {
+    /* max-width: 600px !important;
+    min-width: 400px !important; */
+    text-align: left;
+    font-size: 20px;
+}
+
+.introjs-tooltiptext {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 20px;
+}
+
+.introjs-button {
+    font-size: 20px;
+}
+
+.colFrame {
+  transition: all;
+  transition-duration: 1.5s;
+}
+
+.rowFrame {
+  transition: all;
+  transition-duration: 1.5s;
+}
+
+path {
+  transition: all;
+  transition-duration: 1.5s;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.text-gradient-stroke {
+  position: relative;
+}
+
+.text-gradient-stroke::before {
+  content: attr(data-text);
+  position: fixed;
+  z-index: 10;
+  color: white;
+  -webkit-text-stroke: 2px transparent;
+}
+
+.text-gradient-stroke::after {
+  content: attr(data-text);
+  position: relative;
+  z-index: 20;
+  background: linear-gradient(to right, var(--tw-gradient-stops));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--tw-gradient-stops);
+}
+.full-screen-container {
+  min-height: 100vh; /* Set the minimum height to 100% of the viewport height */
+}
+
+.exit-button {
+  background-color: #4CAF50;
+  color: white; 
+  padding: 10px 20px; 
+  font-size: 16px;
+  font-weight: bold; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, box-shadow 0.3s; 
+}
+
+
+
+.sidebar {
+  top: 0;
+  position: relative;
+  left: 0;
+  width: 400px;
+  height: 1200px;
+  background-color: white;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.graph-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.graph-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.graph-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.graph-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 200ms, transform 300ms;
+}
+
+path {
+  transition: all;
+  transition-duration: 1s;
+}
+
+.frame {
+  transition: all;
+  transition-duration: 1s;
+}
+
+.colFrame {
+  transition: all;
+  transition-duration: 1s;
+}
+
+.rowFrame {
+  transition: all;
+  transition-duration: 1s;
+}
+
+@keyframes loading {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}
+.loading::after {
+  content: "";
+  animation-name: loading;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+}
+.dropdown-enter {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-enter-active {
+  max-height: 500px; 
+  opacity: 1;
+  transform: translateY(0);
+  transition: max-height 300ms, opacity 300ms, transform 300ms;
+}
+
+.dropdown-exit {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 300ms, opacity 300ms, transform 300ms;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
